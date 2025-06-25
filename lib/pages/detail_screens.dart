@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import '../models/transactions_model.dart';
 import '../helpers/date_formater.dart';
+import '../widgets/buildDetailRow.dart';
 
 class DetailPage extends StatelessWidget {
   final Sprinter sprinter;
@@ -56,19 +57,19 @@ class DetailPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              _buildDetailRow(
+              build_detail_row(
                 Icons.person,
                 'Nama Sprinter',
                 sprinter.seller_name,
               ),
               const Divider(height: 20),
-              _buildDetailRow(
+              build_detail_row(
                 Icons.timer_rounded,
                 'Tanggal / Jam',
                 '${dateFormater(sprinter.created_at)} / ${timeFormater(sprinter.created_at)}',
               ),
               const Divider(height: 20),
-              _buildDetailRow(
+              build_detail_row(
                 Icons.info_outline,
                 'Package',
                 "${sprinter.package} Package",
@@ -77,36 +78,6 @@ class DetailPage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  // Widget helper untuk membuat baris detail
-  Widget _buildDetailRow(IconData icon, String label, String value) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, color: const Color.fromARGB(255, 212, 15, 15), size: 24),
-        const SizedBox(width: 16),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: TextStyle(color: Colors.grey[600], fontSize: 18),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }

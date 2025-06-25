@@ -14,7 +14,7 @@ class MenuButton extends StatelessWidget {
           const DrawerHeader(
             decoration: BoxDecoration(color: Color.fromARGB(255, 212, 15, 15)),
             child: Text(
-              'Username',
+              'Sprinter',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -36,7 +36,6 @@ class MenuButton extends StatelessWidget {
             onTap: () {
               // Menutup drawer
               Navigator.pop(context);
-              // TODO: Arahkan ke halaman Profile
               // Contoh: Navigator.pushNamed(context, '/profile');
             },
           ),
@@ -46,7 +45,6 @@ class MenuButton extends StatelessWidget {
             onTap: () {
               // Menutup drawer
               Navigator.pop(context);
-              // TODO: Arahkan ke halaman Pengaturan
               // Contoh: Navigator.pushNamed(context, '/settings');
             },
           ),
@@ -57,7 +55,6 @@ class MenuButton extends StatelessWidget {
             onTap: () {
               // Menutup drawer
               Navigator.pop(context);
-              // TODO: Implementasikan logika logout
               // Contoh: Arahkan ke halaman login dan hapus riwayat navigasi
               // Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
             },
