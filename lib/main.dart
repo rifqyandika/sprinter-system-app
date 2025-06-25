@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey[100],
         fontFamily: 'Poppins',
       ),
-      home: const HomePage(), // Atur HomePage sebagai halaman awal
+      home: const HomePage(),
     );
   }
 }

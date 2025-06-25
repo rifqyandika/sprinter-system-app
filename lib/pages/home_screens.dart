@@ -5,6 +5,7 @@ import '../models/transactions_model.dart';
 import '../services/transactions_service.dart';
 import './detail_screens.dart';
 import '../helpers/date_formater.dart';
+import '../widgets/menu_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -42,7 +43,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         backgroundColor: const Color.fromARGB(255, 212, 15, 15),
+        foregroundColor: Colors.white,
       ),
+      drawer: const MenuButton(),
       body: Center(
         child: FutureBuilder<List<Sprinter>>(
           future: futureSprinter,

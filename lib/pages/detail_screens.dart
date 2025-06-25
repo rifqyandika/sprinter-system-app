@@ -64,8 +64,8 @@ class DetailPage extends StatelessWidget {
               const Divider(height: 20),
               _buildDetailRow(
                 Icons.timer_rounded,
-                'Tanggal/Jam',
-                dateFormater(sprinter.created_at),
+                'Tanggal / Jam',
+                '${dateFormater(sprinter.created_at)} / ${timeFormater(sprinter.created_at)}',
               ),
               const Divider(height: 20),
               _buildDetailRow(
