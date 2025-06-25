@@ -1,7 +1,7 @@
 // filepath: [sprinter_service.dart](http://_vscodecontentref_/0)
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../models/sprinter_model.dart';
+import '../models/transactions_model.dart';
 
 class SprinterService {
   final String _baseUrl =

@@ -1,7 +1,8 @@
 // lib/pages/detail_page.dart
 
 import 'package:flutter/material.dart';
-import '../models/sprinter_model.dart'; // Import model
+import '../models/transactions_model.dart';
+import '../helpers/date_formater.dart';
 
 class DetailPage extends StatelessWidget {
   final Sprinter sprinter;
@@ -44,11 +45,15 @@ class DetailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min, // Membuat Column seukuran kontennya
             children: [
-              Text(
-                ' ${sprinter.seller_name}',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(Icons.store_mall_directory, size: 60),
+                  Text(
+                    ' ${sprinter.seller_name}',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
               const SizedBox(height: 20),
               _buildDetailRow(
@@ -60,10 +65,14 @@ class DetailPage extends StatelessWidget {
               _buildDetailRow(
                 Icons.timer_rounded,
                 'Tanggal/Jam',
-                sprinter.seller_name,
+                dateFormater(sprinter.created_at),
               ),
               const Divider(height: 20),
-              _buildDetailRow(Icons.info_outline, 'Package', "123 Package"),
+              _buildDetailRow(
+                Icons.info_outline,
+                'Package',
+                "${sprinter.package} Package",
+              ),
             ],
           ),
         ),
@@ -84,9 +93,9 @@ class DetailPage extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                style: TextStyle(color: Colors.grey[600], fontSize: 18),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 6),
               Text(
                 value,
                 style: const TextStyle(

@@ -1,8 +1,8 @@
 // lib/pages/home_page.dart
 
 import 'package:flutter/material.dart';
-import '../models/sprinter_model.dart';
-import '../services/sprinter_service.dart';
+import '../models/transactions_model.dart';
+import '../services/transactions_service.dart';
 import './detail_screens.dart';
 import '../helpers/date_formater.dart';
 
