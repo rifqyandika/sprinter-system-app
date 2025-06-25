@@ -69,7 +69,6 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   // PERBAIKAN KRITIS: Mengambil satu item dari list 'sprinters'
                   final sprinter = sprinters[index];
-
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20.0,
@@ -97,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.grey.withAlpha(25),
                               spreadRadius: 1,
                               blurRadius: 5,
-                              offset: const Offset(0, 3),
+                              offset: const Offset(0, 5),
                             ),
                           ],
                         ),
@@ -122,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    sprinter.seller_name,
+                                    sprinter.sellerName,
                                     style: const TextStyle(
                                       fontSize: 18.0,
                                       fontWeight: FontWeight.bold,
@@ -131,16 +130,18 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   const SizedBox(height: 4.0),
                                   Text(
-                                    dateFormater(sprinter.created_at),
+                                    dateFormater(sprinter.createdAt),
                                     style: TextStyle(
-                                      fontSize: 14.0,
+                                      fontSize: 15.0,
                                       color: Colors.grey[600],
+                                      fontWeight: FontWeight.w500,
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ],
                               ),
                             ),
+                            const Icon(Icons.more_vert),
                           ],
                         ),
                       ),

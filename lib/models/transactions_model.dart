@@ -1,22 +1,22 @@
 class Sprinter {
   // ignore: non_constant_identifier_names
-  final String seller_name;
+  final String sellerName;
   // ignore: non_constant_identifier_names
-  final String created_at;
+  final String createdAt;
   final int package;
 
   Sprinter({
     // ignore: non_constant_identifier_names
-    required this.seller_name,
+    required this.sellerName,
     // ignore: non_constant_identifier_names
-    required this.created_at,
+    required this.createdAt,
     required this.package,
   });
 
   factory Sprinter.fromJson(Map<String, dynamic> json) {
     return Sprinter(
-      seller_name: json['seller_name'],
-      created_at: json['created_at'],
+      sellerName: json['sellerName'],
+      createdAt: json['createdAt'],
       package: json['package'],
     );
   }

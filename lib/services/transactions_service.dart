@@ -5,7 +5,7 @@ import '../models/transactions_model.dart';
 
 class SprinterService {
   final String _baseUrl =
-      'https://djkhisdfutpxlywfinio.supabase.co/rest/v1/transactions'; // Ganti dengan endpoint API kamu
+      'https://trans-gamma.vercel.app/api/mobile/transactions'; // Ganti dengan endpoint API kamu
   final String _apiKey =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa2hpc2RmdXRweGx5d2ZpbmlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3OTY1MzcsImV4cCI6MjA2NTM3MjUzN30.a45dEtAVAyLSszkfDOB4dXpmWkLdFGM9a2zMEADbL2c'; // Ganti dengan API key kamu
   final String _bearerToken =

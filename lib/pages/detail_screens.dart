@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import '../models/transactions_model.dart';
 import '../helpers/date_formater.dart';
-import '../widgets/buildDetailRow.dart';
+import '../widgets/build_detail_row.dart';
 
 class DetailPage extends StatelessWidget {
   final Sprinter sprinter;
@@ -15,7 +15,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          sprinter.seller_name,
+          "Detail ${sprinter.sellerName}",
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -46,31 +46,18 @@ class DetailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min, // Membuat Column seukuran kontennya
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(Icons.store_mall_directory, size: 60),
-                  Text(
-                    ' ${sprinter.seller_name}',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              build_detail_row(
-                Icons.person,
-                'Nama Sprinter',
-                sprinter.seller_name,
-              ),
+              build_detail_row(Icons.store, 'Nama Seller', sprinter.sellerName),
+              const Divider(height: 20),
+              build_detail_row(Icons.person, 'Nama Sprinter', "Ridwan"),
               const Divider(height: 20),
               build_detail_row(
-                Icons.timer_rounded,
+                Icons.access_time_filled_outlined,
                 'Tanggal / Jam',
-                '${dateFormater(sprinter.created_at)} / ${timeFormater(sprinter.created_at)}',
+                '${dateFormater(sprinter.createdAt)} / ${timeFormater(sprinter.createdAt)}',
               ),
               const Divider(height: 20),
               build_detail_row(
-                Icons.info_outline,
+                Icons.indeterminate_check_box,
                 'Package',
                 "${sprinter.package} Package",
               ),
