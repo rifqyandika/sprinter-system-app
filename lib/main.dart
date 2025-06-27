@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import './pages/home_screens.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import './core/app_colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,10 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sprinter System',
       theme: ThemeData(
-        primaryColor: const Color.fromARGB(255, 212, 15, 15),
-        scaffoldBackgroundColor: Colors.grey[100],
+        scaffoldBackgroundColor: AppColors.grey,
         fontFamily: 'Poppins',
       ),
       home: const HomePage(),

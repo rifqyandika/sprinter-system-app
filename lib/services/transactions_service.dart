@@ -23,11 +23,8 @@ class SprinterService {
 
     if (response.statusCode == 200) {
       List<dynamic> jsonResponse = json.decode(response.body);
-      // print('Response body: ${response.body}');
       return jsonResponse.map((user) => Sprinter.fromJson(user)).toList();
     } else {
-      // print('Status code: ${response.statusCode}');
-      // print('Response body: ${response.body}');
       throw Exception('Gagal memuat data sprinter');
     }
   }

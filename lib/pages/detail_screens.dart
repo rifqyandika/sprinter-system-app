@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../models/transactions_model.dart';
 import '../helpers/date_formater.dart';
 import '../widgets/build_detail_row.dart';
+import '../core/app_colors.dart';
 
 class DetailPage extends StatelessWidget {
   final Sprinter sprinter;
@@ -22,7 +23,7 @@ class DetailPage extends StatelessWidget {
             fontFamily: "Poppins",
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 212, 15, 15),
+        backgroundColor: AppColors.primary,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
@@ -48,7 +49,9 @@ class DetailPage extends StatelessWidget {
             children: [
               build_detail_row(Icons.store, 'Nama Seller', sprinter.sellerName),
               const Divider(height: 20),
-              build_detail_row(Icons.person, 'Nama Sprinter', "Ridwan"),
+              build_detail_row(Icons.info_rounded, 'Code', sprinter.code),
+              const Divider(height: 20),
+              build_detail_row(Icons.person, 'Sprinter', sprinter.sprinterName),
               const Divider(height: 20),
               build_detail_row(
                 Icons.access_time_filled_outlined,

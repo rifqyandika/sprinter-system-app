@@ -18,8 +18,8 @@ String timeFormater(String dateString, {String format = 'HH:mm a'}) {
     return 'Waktu tidak valid';
   }
   try {
-    final String finalDate = '${dateString}Z';
-    DateTime dataObject = DateTime.parse(finalDate);
+    // final String finalDate = '${dateString}Z';
+    DateTime dataObject = DateTime.parse(dateString);
     DateTime dateLocal = dataObject.toLocal();
     // print(finalDate);
     return DateFormat(format, 'id_ID').format(dateLocal);

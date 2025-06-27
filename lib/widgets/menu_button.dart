@@ -13,13 +13,24 @@ class MenuButton extends StatelessWidget {
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(color: Color.fromARGB(255, 212, 15, 15)),
-            child: Text(
-              'Sprinter',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontFamily: "Poppins",
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // SizedBox(height: 10),
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage: AssetImage('assets/images/user.png'),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Ridwan',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontFamily: "Poppins",
+                  ),
+                ),
+              ],
             ),
           ),
           ListTile(

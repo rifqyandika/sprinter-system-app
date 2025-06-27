@@ -1,12 +1,13 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import '../core/app_colors.dart';
 
 // ignore: non_constant_identifier_names
 Widget build_detail_row(IconData icon, String label, String value) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Icon(icon, color: const Color.fromARGB(255, 255, 59, 59), size: 35),
+      Icon(icon, color: AppColors.secondary, size: 35),
       const SizedBox(width: 20),
       Expanded(
         child: Column(
@@ -15,8 +16,8 @@ Widget build_detail_row(IconData icon, String label, String value) {
             Text(
               label,
               style: TextStyle(
-                color: Color.fromARGB(255, 255, 59, 59),
-                fontSize: 18,
+                color: AppColors.secondary,
+                fontSize: 17,
                 fontWeight: FontWeight.w600,
               ),
             ),

@@ -77,13 +77,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   assets:
-        - assets/
+    - assets/images/
   fonts:
-      - family: Poppins # Nama font yang akan digunakan di kode
-        fonts:
-            - asset: assets/Poppins-Regular.ttf
-            - asset: assets/Poppins-Medium.ttf
-            - asset: assets/Poppins-Regular.ttf
+    - family: Poppins # Nama font yang akan digunakan di kode
+      fonts:
+        - asset: assets/Poppins-Regular.ttf
+        - asset: assets/Poppins-Medium.ttf
+        - asset: assets/Poppins-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

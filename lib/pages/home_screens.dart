@@ -6,6 +6,7 @@ import '../services/transactions_service.dart';
 import './detail_screens.dart';
 import '../helpers/date_formater.dart';
 import '../widgets/menu_button.dart';
+import '../core/app_colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,11 +31,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text(
           'SPRINTER SYSTEM',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Poppins",
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
@@ -42,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {},
           ),
         ],
-        backgroundColor: const Color.fromARGB(255, 212, 15, 15),
+        backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
       ),
       drawer: const MenuButton(),
@@ -106,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                               width: 60,
                               height: 60,
                               decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 255, 59, 59),
+                                color: AppColors.secondary,
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: const Icon(
