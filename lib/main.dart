@@ -1,9 +1,9 @@
 // lib/main.dart
 
 import 'package:flutter/material.dart';
-import './pages/home_screens.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import './core/app_colors.dart';
+import './pages/auth/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.grey,
         fontFamily: 'Poppins',
       ),
-      home: const HomePage(),
+      home: const LoginScreen(),
     );
   }
 }

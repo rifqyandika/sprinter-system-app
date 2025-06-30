@@ -7,6 +7,7 @@ import './detail_screens.dart';
 import '../helpers/date_formater.dart';
 import '../widgets/menu_button.dart';
 import '../core/app_colors.dart';
+// import '../widgets/search_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,21 +28,17 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'SPRINTER SYSTEM',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search, color: Colors.white, size: 30),
-            onPressed: () {},
-          ),
-        ],
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
+    var appBar = AppBar(
+      title: const Text(
+        'SPRINTER SYSTEM',
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
+      actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
+      backgroundColor: AppColors.primary,
+      foregroundColor: Colors.white,
+    );
+    return Scaffold(
+      appBar: appBar,
       drawer: const MenuButton(),
       body: Center(
         child: FutureBuilder<List<Sprinter>>(
@@ -50,7 +47,6 @@ class _HomePageState extends State<HomePage> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
             } else if (snapshot.hasError) {
-              // Menampilkan error dengan lebih jelas
               return Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
@@ -59,12 +55,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-              // PERBAIKAN: Mengambil list dari snapshot.data!
               final sprinters = snapshot.data!;
               return ListView.builder(
                 itemCount: sprinters.length,
                 itemBuilder: (context, index) {
-                  // PERBAIKAN KRITIS: Mengambil satu item dari list 'sprinters'
                   final sprinter = sprinters[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(
@@ -77,7 +71,6 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            // Pastikan DetailPage menerima objek Sprinter
                             builder: (context) =>
                                 DetailPage(sprinter: sprinter),
                           ),

@@ -5,20 +5,14 @@ import '../models/transactions_model.dart';
 
 class SprinterService {
   final String _baseUrl =
-      'https://trans-gamma.vercel.app/api/mobile/transactions'; // Ganti dengan endpoint API kamu
-  final String _apiKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa2hpc2RmdXRweGx5d2ZpbmlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3OTY1MzcsImV4cCI6MjA2NTM3MjUzN30.a45dEtAVAyLSszkfDOB4dXpmWkLdFGM9a2zMEADbL2c'; // Ganti dengan API key kamu
-  final String _bearerToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqa2hpc2RmdXRweGx5d2ZpbmlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk3OTY1MzcsImV4cCI6MjA2NTM3MjUzN30.a45dEtAVAyLSszkfDOB4dXpmWkLdFGM9a2zMEADbL2c  '; // Ganti dengan Bearer token kamu
+      'https://trans-gamma.vercel.app/api/mobile/transactions';
+  final String _cookie =
+      'accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbWNpbDhoZ2owMDAwazIwNGQ0eDE3M3A4IiwiZW1haWwiOiJjZV9ibHVlNjlAeWFob28uY29tIiwicm9sZXMiOlsic3ByaW50ZXIiXSwiaWF0IjoxNzUxMjY3Mzc1LCJleHAiOjE3NTEzNTM3NzV9.AY_0NI4Smb1ktq0m03J6Rv3c7ZcGWHJQ7e3yoXxNMFs'; // Ganti dengan Bearer token kamu
 
   Future<List<Sprinter>> fetchSprinter() async {
     final response = await http.get(
       Uri.parse(_baseUrl),
-      headers: {
-        'apikey': _apiKey,
-        'Authorization': 'Bearer $_bearerToken',
-        'Accept': 'application/json',
-      },
+      headers: {'Cookie': _cookie, 'Accept': 'application/json'},
     );
 
     if (response.statusCode == 200) {

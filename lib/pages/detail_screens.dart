@@ -62,7 +62,7 @@ class DetailPage extends StatelessWidget {
               build_detail_row(
                 Icons.indeterminate_check_box,
                 'Package',
-                "${sprinter.package} Package",
+                "${sprinter.packageNumber} Package",
               ),
             ],
           ),
