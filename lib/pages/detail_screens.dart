@@ -27,10 +27,10 @@ class DetailPage extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(15.0),
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12.0),

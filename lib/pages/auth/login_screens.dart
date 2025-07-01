@@ -1,13 +1,43 @@
 import 'package:flutter/material.dart';
+import '../../services/login_service.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    const Color orangeColor = Color(0xFFE95B2A);
-    const Color darkColor = Color(0xFF212121);
+  State<LoginScreen> createState() => _LoginScreenState();
+}
 
+class _LoginScreenState extends State<LoginScreen> {
+  final Color orangeColor = const Color(0xFFE95B2A);
+  final Color darkColor = const Color(0xFF212121);
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  void handleLogin() async {
+    final email = emailController.text.trim();
+    final password = passwordController.text;
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Email dan password tidak boleh kosong")),
+      );
+      return;
+    } else {
+      loginAuth(context, email, password);
+    }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: orangeColor,
       body: SafeArea(
@@ -20,7 +50,7 @@ class LoginScreen extends StatelessWidget {
               const Spacer(flex: 1),
               Image.asset(
                 'assets/images/welcome_illustration.png',
-                height: 270, // Sesuaikan ukuran sesuai kebutuhan
+                height: 270,
               ),
               const SizedBox(height: 20),
               const Text(
@@ -31,30 +61,36 @@ class LoginScreen extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              // const Spacer(flex: 2),
-              const SizedBox(height: 20),
+              const SizedBox(height: 25),
+
+              // TextField Email
               TextField(
-                // controller: controller,
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(20),
                   filled: true,
+                  fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'Email',
-                  labelStyle: TextStyle(
-                    color: const Color.fromARGB(255, 99, 99, 99),
+                  labelStyle: const TextStyle(
+                    color: Color.fromARGB(255, 99, 99, 99),
                   ),
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 10),
+
+              // TextField Password
               TextField(
-                // controller: controller,
+                controller: passwordController,
                 obscureText: true,
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(20),
                   filled: true,
+                  fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -63,11 +99,11 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 25),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: handleLogin,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: darkColor,
                   padding: const EdgeInsets.all(20),
-                  foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+                  foregroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -78,13 +114,14 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
+
               const Spacer(),
               const Text(
                 'Version 1.0.0',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
-              const SizedBox(height: 20), // Padding bawah
+              const SizedBox(height: 20),
             ],
           ),
         ),

@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   final sprinter = sprinters[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
+                      horizontal: 15.0,
                       vertical: 8.0,
                     ),
                     child: InkWell(
