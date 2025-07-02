@@ -1,6 +1,7 @@
 // lib/widgets/app_drawer.dart
 
 import 'package:flutter/material.dart';
+import '../services/storage_service.dart';
 
 class MenuButton extends StatelessWidget {
   const MenuButton({super.key});
@@ -63,11 +64,15 @@ class MenuButton extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
-            onTap: () {
-              // Menutup drawer
-              Navigator.pop(context);
-              // Contoh: Arahkan ke halaman login dan hapus riwayat navigasi
-              // Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
+            onTap: () async {
+              final currentContext = context;
+              await SecureStorageService.deleteCookie();
+              // final hasCookie = await SecureStorageService.hasCookie();
+              if (!currentContext.mounted) return;
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                '/login',
+                (Route<dynamic> route) => false,
+              );
             },
           ),
         ],

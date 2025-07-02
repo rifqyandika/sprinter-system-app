@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../services/login_service.dart';
+import '../../core/app_colors.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,7 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final Color orangeColor = const Color(0xFFE95B2A);
+  final Color orangeColor = AppColors.secondary;
   final Color darkColor = const Color(0xFF212121);
 
   final TextEditingController emailController = TextEditingController();
@@ -26,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     } else {
       loginAuth(context, email, password);
+      // print("Email: $email, Password: $password");
     }
   }
 
@@ -61,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontSize: 18,
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 70),
 
               // TextField Email
               TextField(
@@ -73,14 +75,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
                   ),
                   labelText: 'Email',
-                  labelStyle: const TextStyle(
-                    color: Color.fromARGB(255, 99, 99, 99),
-                  ),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 15),
 
               // TextField Password
               TextField(
@@ -93,6 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
                   ),
                   labelText: 'Password',
                 ),

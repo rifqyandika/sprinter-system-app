@@ -7,6 +7,7 @@ import './detail_screens.dart';
 import '../helpers/date_formater.dart';
 import '../widgets/menu_button.dart';
 import '../core/app_colors.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 // import '../widgets/search_button.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,7 +20,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late Future<List<Sprinter>> futureSprinter;
   final SprinterService _sprinterService = SprinterService();
-
   @override
   void initState() {
     super.initState();
@@ -45,7 +45,10 @@ class _HomePageState extends State<HomePage> {
           future: futureSprinter,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
+              return LoadingAnimationWidget.progressiveDots(
+                color: AppColors.secondary,
+                size: 45,
+              );
             } else if (snapshot.hasError) {
               return Padding(
                 padding: const EdgeInsets.all(16.0),
