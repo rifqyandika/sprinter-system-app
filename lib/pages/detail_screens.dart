@@ -21,9 +21,10 @@ class DetailPage extends StatelessWidget {
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontFamily: "Poppins",
+            fontSize: 20,
           ),
         ),
-        backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.secondary,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(

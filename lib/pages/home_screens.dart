@@ -31,10 +31,14 @@ class _HomePageState extends State<HomePage> {
     var appBar = AppBar(
       title: const Text(
         'SPRINTER SYSTEM',
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+        ),
       ),
       actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColors.secondary,
       foregroundColor: Colors.white,
     );
     return Scaffold(

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../services/storage_service.dart';
+import '../core/app_colors.dart';
 
 class MenuButton extends StatelessWidget {
   const MenuButton({super.key});
@@ -13,11 +14,11 @@ class MenuButton extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           const DrawerHeader(
-            decoration: BoxDecoration(color: Color.fromARGB(255, 212, 15, 15)),
+            decoration: BoxDecoration(color: AppColors.secondary),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // SizedBox(height: 10),
+                SizedBox(height: 10),
                 CircleAvatar(
                   radius: 40,
                   backgroundImage: AssetImage('assets/images/user.png'),
@@ -27,7 +28,7 @@ class MenuButton extends StatelessWidget {
                   'Ridwan',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
+                    fontSize: 20,
                     fontFamily: "Poppins",
                   ),
                 ),
@@ -39,7 +40,7 @@ class MenuButton extends StatelessWidget {
             title: const Text('Home'),
             onTap: () {
               // Menutup drawer
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/home');
             },
           ),
           ListTile(
@@ -53,7 +54,7 @@ class MenuButton extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.settings_outlined),
-            title: const Text('Pengaturan'),
+            title: const Text('Settings'),
             onTap: () {
               // Menutup drawer
               Navigator.pop(context);

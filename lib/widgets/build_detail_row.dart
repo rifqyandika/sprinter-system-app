@@ -17,14 +17,14 @@ Widget build_detail_row(IconData icon, String label, String value) {
               label,
               style: TextStyle(
                 color: AppColors.secondary,
-                fontSize: 17,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 6),
             Text(
               value,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ],
         ),
