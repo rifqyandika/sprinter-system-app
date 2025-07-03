@@ -18,17 +18,17 @@ class MenuButton extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 10),
+                SizedBox(height: 8),
                 CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage('assets/images/user.png'),
+                  radius: 45,
+                  backgroundImage: NetworkImage('https://i.pravatar.cc/230'),
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Ridwan',
+                  'Version 1.0.0',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: "Poppins",
                   ),
                 ),
@@ -36,30 +36,47 @@ class MenuButton extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.home_outlined),
-            title: const Text('Home'),
+            leading: const Icon(
+              Icons.home_outlined,
+              size: 30,
+              // color: AppColors.secondary,
+            ),
+            title: const Text(
+              'Home',
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+            ),
             onTap: () {
-              // Menutup drawer
               Navigator.pushNamed(context, '/home');
             },
           ),
           ListTile(
-            leading: const Icon(Icons.person_outline),
-            title: const Text('Profile'),
+            leading: const Icon(Icons.person_outline, size: 30),
+            title: const Text(
+              'Profile',
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+            ),
             onTap: () {
-              // Menutup drawer
-              Navigator.pop(context);
-              // Contoh: Navigator.pushNamed(context, '/profile');
+              Navigator.pushNamed(context, '/profile');
             },
           ),
-          const Divider(), // Garis pemisah
+          const Divider(),
           ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text('Logout'),
+            leading: const Icon(
+              Icons.logout,
+              size: 30,
+              color: AppColors.secondary,
+            ),
+            title: const Text(
+              'Logout',
+              style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w500,
+                color: AppColors.secondary,
+              ),
+            ),
             onTap: () async {
               final currentContext = context;
               await SecureStorageService.deleteCookie();
-              // final hasCookie = await SecureStorageService.hasCookie();
               if (!currentContext.mounted) return;
               Navigator.of(context).pushNamedAndRemoveUntil(
                 '/login',

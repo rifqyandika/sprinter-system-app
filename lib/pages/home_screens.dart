@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final SprinterService _sprinterService = SprinterService();
   final TextEditingController _searchController = TextEditingController();
+  // final UsersService _usersService = UsersService();
 
   List<Sprinter> allSprinters = [];
   List<Sprinter> filteredSprinters = [];

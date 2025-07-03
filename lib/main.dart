@@ -6,6 +6,7 @@ import './core/app_colors.dart';
 import 'pages/auth/login_screens.dart';
 import './pages/home_screens.dart';
 import './pages/splash_screen.dart';
+import './pages/profile_screens.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginScreen(),
+        '/profile': (context) => const ProfilePage(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

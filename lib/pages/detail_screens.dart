@@ -46,7 +46,7 @@ class DetailPage extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min, // Membuat Column seukuran kontennya
+            mainAxisSize: MainAxisSize.min,
             children: [
               build_detail_row(Icons.store, 'Nama Seller', sprinter.sellerName),
               const Divider(height: 20),
