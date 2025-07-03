@@ -3,10 +3,11 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/transactions_model.dart';
 import './storage_service.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class SprinterService {
-  final String _baseUrl = '${dotenv.env['API_KEY']}/api/mobile/transactions';
+  final String _baseUrl =
+      'https://trans-gamma.vercel.app/api/mobile/transactions';
 
   Future<List<Sprinter>> fetchSprinter() async {
     final String? cookie = await SecureStorageService.getCookie();

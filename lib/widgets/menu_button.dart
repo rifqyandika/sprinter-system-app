@@ -52,15 +52,6 @@ class MenuButton extends StatelessWidget {
               // Contoh: Navigator.pushNamed(context, '/profile');
             },
           ),
-          ListTile(
-            leading: const Icon(Icons.settings_outlined),
-            title: const Text('Settings'),
-            onTap: () {
-              // Menutup drawer
-              Navigator.pop(context);
-              // Contoh: Navigator.pushNamed(context, '/settings');
-            },
-          ),
           const Divider(), // Garis pemisah
           ListTile(
             leading: const Icon(Icons.logout),

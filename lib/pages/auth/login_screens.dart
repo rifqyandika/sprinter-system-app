@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const Spacer(flex: 1),
               Image.asset(
                 'assets/images/welcome_illustration.png',
-                height: 130,
+                height: 150,
               ),
               const SizedBox(height: 20),
               const Text(
