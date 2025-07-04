@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import '../services/storage_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import '../models/users_model.dart';
 
 Future<void> loginAuth(
   BuildContext context,
@@ -18,11 +19,15 @@ Future<void> loginAuth(
     );
     if (response.statusCode == 200) {
       final setCookie = response.headers['set-cookie'];
+      final Map<String, dynamic> setBody = jsonDecode(response.body);
+      final Map<String, dynamic> userData = setBody['user'];
+      final user = User.fromJson(userData);
       if (setCookie != null) {
         final cookieSet = setCookie.split(';').first;
         // ignore: use_build_context_synchronously
         Navigator.pushReplacementNamed(context, '/home');
         await SecureStorageService.saveCookie(cookieSet);
+        await SecureStorageService.saveUser(user);
       }
     } else {
       final error = jsonDecode(response.body);

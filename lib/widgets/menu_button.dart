@@ -1,7 +1,6 @@
 // lib/widgets/app_drawer.dart
 
 import 'package:flutter/material.dart';
-import '../services/storage_service.dart';
 import '../core/app_colors.dart';
 
 class MenuButton extends StatelessWidget {
@@ -25,7 +24,7 @@ class MenuButton extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Version 1.0.0',
+                  'V.1.0.0',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 17,
@@ -49,6 +48,7 @@ class MenuButton extends StatelessWidget {
               Navigator.pushNamed(context, '/home');
             },
           ),
+          const Divider(),
           ListTile(
             leading: const Icon(Icons.person_outline, size: 30),
             title: const Text(
@@ -60,30 +60,6 @@ class MenuButton extends StatelessWidget {
             },
           ),
           const Divider(),
-          ListTile(
-            leading: const Icon(
-              Icons.logout,
-              size: 30,
-              color: AppColors.secondary,
-            ),
-            title: const Text(
-              'Logout',
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w500,
-                color: AppColors.secondary,
-              ),
-            ),
-            onTap: () async {
-              final currentContext = context;
-              await SecureStorageService.deleteCookie();
-              if (!currentContext.mounted) return;
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                '/login',
-                (Route<dynamic> route) => false,
-              );
-            },
-          ),
         ],
       ),
     );

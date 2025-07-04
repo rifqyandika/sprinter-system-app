@@ -1,36 +1,57 @@
+import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../models/users_model.dart';
 
 class SecureStorageService {
   static const _storage = FlutterSecureStorage();
-  static const _cookie = 'Cookie';
 
-  // Menyimpan token
+  static const _cookieKey = 'Cookie';
+  static const _userKey = 'UserData';
+
+  // ---------------- Cookie ----------------
   static Future<void> saveCookie(String cookie) async {
-    await _storage.write(key: _cookie, value: cookie);
+    await _storage.write(key: _cookieKey, value: cookie);
   }
 
-  // Mengambil token
   static Future<String?> getCookie() async {
-    return await _storage.read(key: _cookie);
+    return await _storage.read(key: _cookieKey);
   }
 
-  // Menghapus token
   static Future<void> deleteCookie() async {
-    await _storage.delete(key: _cookie);
+    await _storage.delete(key: _cookieKey);
   }
 
-  // Cek token
   static Future<bool> hasCookie() async {
-    final token = await _storage.read(key: _cookie);
-    return token != null && token.isEmpty;
+    final token = await _storage.read(key: _cookieKey);
+    return token != null && token.isNotEmpty;
   }
-}
 
-void checkCookie() async {
-  final token = await SecureStorageService.getCookie();
-  if (token != null) {
-    // print('Token ditemukan');
-  } else {
-    return;
+  // ---------------- User Data ----------------
+  static Future<void> saveUser(User user) async {
+    final jsonStr = jsonEncode({
+      'email': user.email,
+      'nik': user.nik,
+      'code': user.code,
+      'name': user.name,
+      'roles': user.roles,
+    });
+    await _storage.write(key: _userKey, value: jsonStr);
+  }
+
+  static Future<User?> getUser() async {
+    final jsonStr = await _storage.read(key: _userKey);
+    if (jsonStr == null) return null;
+
+    final Map<String, dynamic> jsonMap = jsonDecode(jsonStr);
+    return User.fromJson(jsonMap);
+  }
+
+  static Future<void> deleteUser() async {
+    await _storage.delete(key: _userKey);
+  }
+
+  // ---------------- Clear All ----------------
+  static Future<void> clearAll() async {
+    await _storage.deleteAll();
   }
 }
